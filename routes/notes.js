@@ -14,9 +14,10 @@ const knex = require('../knex');
 // Get All (and search by query)
 router.get('/', (req, res, next) => {
   const { searchTerm } = req.query;
+  const { folderId } = req.query
 
   knex
-  .select('notes.id', 'title', 'content', 'folders.id as folderId', 'folders.name as folderName')
+  .select('notes.id','title', 'content','folders.id as folderId', 'folders.name as folderName')
   .from('notes')
   .leftJoin('folders', 'notes.folder_id', 'folders.id')
   .modify(function (queryBuilder) {
