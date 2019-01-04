@@ -82,7 +82,7 @@ router.post('/folders', (req, res, next) => {
 
 // Delete a folder
 
-router.delete('/folder/:id',(req,res,next)=>{
+router.delete('/folders/:id',(req,res,next)=>{
 const id = req.params.id
 
 knex
